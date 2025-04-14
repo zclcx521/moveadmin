@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'import_export',  # 支持数据导入导出
     'django_filters',  # 过滤器支持
     'drama.apps.DramaConfig',  # 短剧管理应用
+    'rest_framework.authtoken',  # 添加Token认证
 ]
 
 MIDDLEWARE = [
@@ -118,6 +119,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # CORS settings
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
+
+# DRF配置
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+}
 
 # SimpleUI settings
 SIMPLEUI_HOME_TITLE = '短剧管理后台'

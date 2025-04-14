@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
+from rest_framework.authtoken import views as token_views
 from drama.views import CategoryViewSet
 
 router = DefaultRouter()
@@ -24,7 +25,8 @@ router.register('categories', CategoryViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include(router.urls)),
+    path('api/drama/', include('drama.urls')),
+    path('api-token-auth/', token_views.obtain_auth_token),
 ]
 
 # 添加静态文件服务
