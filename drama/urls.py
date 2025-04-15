@@ -1,6 +1,6 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from .views import CategoryViewSet, recommended_dramas
+from .views import CategoryViewSet, recommended_dramas, category_dramas, get_drama_episodes
 
 router = DefaultRouter()
 router.register(r'categories', CategoryViewSet, basename='category')
@@ -8,6 +8,8 @@ router.register(r'categories', CategoryViewSet, basename='category')
 urlpatterns = [
     path('', include(router.urls)),
     path('recommended/', recommended_dramas, name='recommended-dramas'),
+    path('category/<str:category_name>/', category_dramas, name='category-dramas'),
+    path('episodes/', get_drama_episodes, name='drama-episodes'),
 ]
 
 # Debug information - remove in production

@@ -33,6 +33,7 @@ class Drama(models.Model):
         ('published', '已发布'),
         ('offline', '已下线')
     ], default='draft')
+    recommendation_order = models.IntegerField(_('推荐顺序'), null=True, blank=True)
     created_at = models.DateTimeField(_('创建时间'), auto_now_add=True)
     updated_at = models.DateTimeField(_('更新时间'), auto_now=True)
 

@@ -9,7 +9,7 @@ class ActorSerializer(serializers.ModelSerializer):
 class EpisodeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Episode
-        fields = ['id', 'title', 'episode_number', 'thumbnail', 'duration', 'views']
+        fields = ['id', 'title', 'episode_number', 'thumbnail', 'duration', 'views', 'video_url']
 
 class DramaSerializer(serializers.ModelSerializer):
     categories = serializers.StringRelatedField(many=True)
